@@ -1,0 +1,32 @@
+{
+  "name": "ember-cli-addon-tests",
+  "version": "0.1.0",
+  "description": "A set of integration test helpers for Ember CLI addons",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomdale/ember-cli-addon-tests.git"
+  },
+  "keywords": [
+    "ember-cli"
+  ],
+  "author": "Tom Dale <tom@tomdale.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomdale/ember-cli-addon-tests/issues"
+  },
+  "homepage": "https://github.com/tomdale/ember-cli-addon-tests#readme",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "exists-sync": "0.0.3",
+    "findup-sync": "^0.3.0",
+    "fs-extra": "^0.24.0",
+    "fs-promise": "^0.3.1",
+    "lodash": "^3.0.0",
+    "rsvp": "^3.1.0",
+    "temp": "^0.8.3"
+  }
+}
