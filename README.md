@@ -4,7 +4,7 @@ Test helpers for testing Ember CLI addons inside the context of a real
 Ember app.
 
 Previously, it was difficult to do real integration testing with Ember
-CLI addons because the process of creating a new Ember is very slow, due
+CLI addons because the process of creating a new Ember app is very slow, due
 to the required `npm install` and `bower install` steps.
 
 This package automates the process of creating a new Ember CLI app and
