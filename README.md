@@ -169,6 +169,16 @@ method. Takes a command and optional arguments.
 app.run('ember', 'build', '--verbose');
 ```
 
+### Running Ember CLI Commands
+
+You can run commands using the app's version of Ember CLI via the
+`runEmberCommand` method:
+
+```js
+// equivalent to `ember fastboot:build --environment production`
+app.run('fastboot:build', '--environment', 'production');
+```
+
 ### Cleanup
 
 Temporary directories are automatically deleted once the process exits.

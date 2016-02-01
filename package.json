@@ -19,6 +19,9 @@
     "url": "https://github.com/tomdale/ember-cli-addon-tests/issues"
   },
   "homepage": "https://github.com/tomdale/ember-cli-addon-tests#readme",
+  "devDependencies": {
+    "ember-cli": "^1.13.0"
+  },
   "dependencies": {
     "debug": "^2.2.0",
     "exists-sync": "0.0.3",
