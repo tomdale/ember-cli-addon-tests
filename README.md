@@ -112,7 +112,7 @@ If your addon depends on end developers configuring their application's
 `editPackageJSON` method:
 
 ```js
-// returns a promise
+// runs synchronously
 app.editPackageJSON(function(pkg) {
   pkg['devDependencies']['fake-addon'] = "*";
   pkg['devDependencies']['fake-addon-2'] = "*";
