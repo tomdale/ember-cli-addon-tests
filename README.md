@@ -176,7 +176,7 @@ You can run commands using the app's version of Ember CLI via the
 
 ```js
 // equivalent to `ember fastboot:build --environment production`
-app.run('fastboot:build', '--environment', 'production');
+app.runEmberCommand('fastboot:build', '--environment', 'production');
 ```
 
 ### Cleanup
