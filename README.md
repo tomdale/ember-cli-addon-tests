@@ -112,7 +112,7 @@ If your addon depends on end developers configuring their application's
 `editPackageJSON` method:
 
 ```js
-// returns a promise
+// runs synchronously
 app.editPackageJSON(function(pkg) {
   pkg['devDependencies']['fake-addon'] = "*";
   pkg['devDependencies']['fake-addon-2'] = "*";
@@ -176,7 +176,7 @@ You can run commands using the app's version of Ember CLI via the
 
 ```js
 // equivalent to `ember fastboot:build --environment production`
-app.run('fastboot:build', '--environment', 'production');
+app.runEmberCommand('fastboot:build', '--environment', 'production');
 ```
 
 ### Cleanup
