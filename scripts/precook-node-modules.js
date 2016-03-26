@@ -11,7 +11,7 @@ var symlinkDirectory = require('../lib/utilities/symlink-directory');
 var tmpDir           = temp.mkdirSync();
 var root             = process.cwd();
 var name             = 'precooked-app';
-var args             = [path.join(__dirname, '../node_modules/ember-cli/', 'bin', 'ember'), 'new', '--disable-analytics', '--watcher = node', '--skip-git', name];
+var args             = [path.join(process.cwd(), 'node_modules/ember-cli/', 'bin', 'ember'), 'new', '--disable-analytics', '--watcher = node', '--skip-git', name];
 
 fs.ensureDir('tmp')
   .then(function() {
