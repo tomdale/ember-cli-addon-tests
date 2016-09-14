@@ -94,6 +94,26 @@ application as the first argument.
 app.create('my-app');
 ```
 
+#### Options
+
+You can customize the app by supplying an options hash:
+
+```js
+// returns a promise
+app.create('my-app', {
+  emberVersion: 'release'
+});
+```
+
+The following options exist: 
+ 
+| option           | description                                                                             | defaults to         |
+|------------------|-----------------------------------------------------------------------------------------|---------------------|
+| emberVersion     | Set the ember version the app should be created with, as you would in your `bower.json` | canary              |
+| emberDataVersion | Set the version of ember-data, as you would in your `package.json`                      | emberjs/data#master |
+| fixturesPath     | The path to look for your fixture files (see below)                                     | test/fixtures       |
+
+
 #### Fixtures
 
 You will probably want to add files to the Ember application that you
