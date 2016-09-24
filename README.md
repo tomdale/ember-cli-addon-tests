@@ -70,7 +70,7 @@ describe('serve assets acceptance', function() {
 });
 ```
 
-See the [ember-cli-fastboot acceptance tests](https://github.com/tildeio/ember-cli-fastboot/tree/master/tests/acceptance)
+See the [ember-cli-fastboot tests](https://github.com/ember-fastboot/ember-cli-fastboot/tree/master/test)
 for real world examples.
 
 ### Defining a New App
