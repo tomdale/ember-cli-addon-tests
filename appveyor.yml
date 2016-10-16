@@ -1,0 +1,34 @@
+environment:
+  matrix:
+  - nodejs_version: "0.12"
+  - nodejs_version: "4"
+  - nodejs_version: "6"
+
+platform:
+  - x86
+  - x64
+
+# Fix line endings in Windows. (runs before repo cloning)
+init:
+  - git config --global core.autocrlf true
+
+# Install scripts. (runs after repo cloning)
+install:
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - npm config set spin false
+  - npm install -g bower
+  - npm install
+
+# Post-install test scripts.
+test_script:
+  - node --version
+  - npm --version
+  - bower --version
+  - npm test
+
+# http://help.appveyor.com/discussions/questions/1310-delete-cache
+cache:
+  - node_modules -> package.json
+
+# Don't actually build.
+build: off
