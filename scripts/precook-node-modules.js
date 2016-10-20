@@ -19,8 +19,9 @@ fs.ensureDir('tmp')
     return runCommand.apply(undefined, args);
   })
   .then(function() {
-    moveDirectory(path.join(tmpDir, name, 'node_modules'), path.join(root, 'tmp', 'precooked_node_modules'));
-    symlinkDirectory(root, path.join(root, 'tmp', 'precooked_node_modules', 'ember-cli-fastboot'));
+    var precooked = path.join(root, 'tmp', 'precooked_node_modules');
+    moveDirectory(path.join(tmpDir, name, 'node_modules'), precooked);
+    symlinkDirectory(root, path.join(precooked, 'ember-cli-fastboot'));
   })
   .catch(function(e) {
     console.log(e);
