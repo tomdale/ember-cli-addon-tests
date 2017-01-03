@@ -164,7 +164,7 @@ app.startServer({
 You can also pass additional command line arguments via the
 `additionalArguments` option:
 
-```
+```js
 // equivalent to `ember server --serve-assets`
 app.startServer({
   additionalArguments: ['--serve-assets']
