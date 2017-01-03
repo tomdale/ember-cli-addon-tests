@@ -122,7 +122,7 @@ copy fixtures on top of the base Ember CLI app, based on the name of the
 application that you created.
 
 For example, if you call `app.create('my-app')`, the test helper will
-look for a file called `tests/fixtures/my-app` in your addon's directory
+look for a file called `test/fixtures/my-app` in your addon's directory
 and will copy them to the test app, overwriting any files that exist.
 
 ### Editing App's `package.json`
