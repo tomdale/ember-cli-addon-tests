@@ -29,7 +29,7 @@
     "chalk": "^1.1.3",
     "cpr": "1.0.0",
     "debug": "^2.2.0",
-    "exists-sync": "0.0.3",
+    "exists-sync": "0.0.4",
     "findup-sync": "^0.3.0",
     "fs-extra": "^0.24.0",
     "fs-promise": "^0.3.1",
