@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "ember-cli": "^1.13.0",
     "mocha": "^3.1.2",
     "request": "^2.75.0"
   },
