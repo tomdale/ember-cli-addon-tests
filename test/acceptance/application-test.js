@@ -5,7 +5,7 @@ var request = RSVP.denodeify(require('request'));
 var AddonTestApp = require('../../lib').AddonTestApp;
 var runEmber = require('../../lib/utilities/run-ember');
 var makeTemp = require('temp').track();
-var writeFile = RSVP.denodeify(require('fs').writeFile);
+var copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
 
 describe('Acceptance | application', function() {
   this.timeout(300000);
@@ -20,15 +20,16 @@ describe('Acceptance | application', function() {
 
     app = new AddonTestApp();
 
+    var addonName = 'my-addon';
+    var addonPath = path.join(tmp, addonName);
+
     return runEmber(
-      'addon', ['my-addon', '-sb', '-sn', '-sg']
+      'addon', [addonName, '-sb', '-sn', '-sg']
     ).then(function() {
-      process.chdir(path.join(tmp, 'my-addon'));
-      return writeFile(
-        'tests/dummy/app/templates/application.hbs',
-        'The dummy app is rendering correctly'
-      );
+      process.chdir(previousCwd);
+      return copyFixtureFiles(addonName, addonPath);
     }).then(function() {
+      process.chdir(addonPath);
       return app.create('dummy', {
         fixturesPath: 'tests'
       });
