@@ -34,6 +34,11 @@ describe('Acceptance | application', function() {
         fixturesPath: 'tests'
       });
     }).then(function() {
+      app.editPackageJSON(function(pkg) {
+        pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
+      });
+      return app.run('npm', 'install');
+    }).then(function() {
       return app.startServer();
     });
   });
