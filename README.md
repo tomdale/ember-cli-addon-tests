@@ -184,7 +184,7 @@ app.stopServer();
 
 ### Running Commands
 
-You can rub arbitrary commands inside the test app via the `run()`
+You can run arbitrary commands inside the test app via the `run()`
 method. Takes a command and optional arguments.
 
 ```js
