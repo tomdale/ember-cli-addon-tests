@@ -137,8 +137,8 @@ If your addon depends on end developers configuring their application's
 ```js
 // runs synchronously
 app.editPackageJSON(function(pkg) {
-  pkg['devDependencies']['fake-addon'] = "*";
-  pkg['devDependencies']['fake-addon-2'] = "*";
+  pkg.devDependencies['fake-addon'] = "*";
+  pkg.devDependencies['fake-addon-2'] = "*";
 });
 ```
 
