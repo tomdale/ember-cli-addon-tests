@@ -39,7 +39,10 @@ describe('Acceptance | application', function() {
       });
       return app.run('npm', 'install');
     }).then(function() {
-      return app.startServer();
+      return app.startServer({
+        command: 'fastboot',
+        additionalArguments: ['--serve-assets']
+      });
     });
   });
 
@@ -50,7 +53,7 @@ describe('Acceptance | application', function() {
   });
 
   it('works', function() {
-    return request('http://localhost:49741/assets/dummy.js')
+    return request('http://localhost:49741')
       .then(function(response) {
         expect(response.body).to.contain('The dummy app is rendering correctly');
       });
