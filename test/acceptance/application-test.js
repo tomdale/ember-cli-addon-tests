@@ -6,6 +6,16 @@ var AddonTestApp = require('../../lib').AddonTestApp;
 var runEmber = require('../../lib/utilities/run-ember');
 var makeTemp = require('temp').track();
 var copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
+var fs = require('fs');
+
+function promoteHtmlbars() {
+  var pkg = fs.readFileSync('package.json');
+  pkg = JSON.parse(pkg);
+  pkg.dependencies['ember-cli-htmlbars'] = pkg.devDependencies['ember-cli-htmlbars'];
+  delete pkg.devDependencies['ember-cli-htmlbars'];
+  pkg = JSON.stringify(pkg);
+  fs.writeFileSync('package.json', pkg);
+}
 
 describe('Acceptance | application', function() {
   this.timeout(300000);
@@ -30,6 +40,9 @@ describe('Acceptance | application', function() {
       return copyFixtureFiles(addonName, addonPath);
     }).then(function() {
       process.chdir(addonPath);
+
+      promoteHtmlbars();
+
       return app.create('dummy', {
         fixturesPath: 'tests'
       });
@@ -55,7 +68,7 @@ describe('Acceptance | application', function() {
   it('works', function() {
     return request('http://localhost:49741')
       .then(function(response) {
-        expect(response.body).to.contain('The dummy app is rendering correctly');
+        expect(response.body).to.contain('my-addon is working');
       });
   });
 });
