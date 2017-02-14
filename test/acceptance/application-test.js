@@ -18,7 +18,7 @@ function promoteHtmlbars() {
 }
 
 describe('Acceptance | application', function() {
-  this.timeout(300000);
+  this.timeout(process.platform === 'win32' ? 500000 : 300000);
 
   var previousCwd;
   var app;
