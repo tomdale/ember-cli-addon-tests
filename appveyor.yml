@@ -26,9 +26,8 @@ test_script:
   - bower --version
   - npm test
 
-# http://help.appveyor.com/discussions/questions/1310-delete-cache
 cache:
-  - node_modules -> package.json
+  - '%APPDATA%\npm-cache'
 
 # Don't actually build.
 build: off
