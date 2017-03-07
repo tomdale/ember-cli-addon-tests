@@ -1,7 +1,8 @@
 ## Ember CLI Addon Tests
 
 [![npm version](https://badge.fury.io/js/ember-cli-addon-tests.svg)](https://badge.fury.io/js/ember-cli-addon-tests)
-[![Build Status](https://travis-ci.org/tomdale/ember-cli-addon-tests.svg?branch=master)](https://travis-ci.org/tomdale/ember-cli-addon-tests)
+[![Build Status - Travis](https://travis-ci.org/tomdale/ember-cli-addon-tests.svg?branch=master)](https://travis-ci.org/tomdale/ember-cli-addon-tests)
+[![Build Status - AppVeyor](https://ci.appveyor.com/api/projects/status/ifp893hf5s6j5uuy?svg=true)](https://ci.appveyor.com/project/tomdale/ember-cli-addon-tests)
 
 Test helpers for testing Ember CLI addons inside the context of a real
 Ember app.
