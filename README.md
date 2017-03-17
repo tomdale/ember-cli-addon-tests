@@ -110,13 +110,14 @@ app.create('my-app', {
 });
 ```
 
-The following options exist: 
- 
+The following options exist:
+
 | option           | description                                                                             | defaults to         |
 |------------------|-----------------------------------------------------------------------------------------|---------------------|
 | emberVersion     | Set the ember version the app should be created with, as you would in your `bower.json` | canary              |
 | emberDataVersion | Set the version of ember-data, as you would in your `package.json`                      | emberjs/data#master |
 | fixturesPath     | The path to look for your fixture files (see below)                                     | test/fixtures       |
+| noFixtures       | Disables the use of fixture files                                                       | false               |
 
 
 #### Fixtures
@@ -129,6 +130,9 @@ application that you created.
 For example, if you call `app.create('my-app')`, the test helper will
 look for a file called `test/fixtures/my-app` in your addon's directory
 and will copy them to the test app, overwriting any files that exist.
+
+If you do not need fixture files in your test, you can disable them by
+specifying the `noFixtures` option.
 
 ### Editing App's `package.json`
 
