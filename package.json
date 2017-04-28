@@ -25,7 +25,7 @@
     "debug": "^2.2.0",
     "exists-sync": "0.0.4",
     "findup-sync": "^0.4.3",
-    "fs-extra": "^2.0.0",
+    "fs-extra": "^3.0.0",
     "fs-promise": "^2.0.0",
     "lodash": "^4.0.0",
     "mkdirp": "^0.5.1",
