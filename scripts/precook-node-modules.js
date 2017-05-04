@@ -23,5 +23,5 @@ fs.ensureDir('tmp')
     symlinkDirectory(root, path.join(precooked, 'ember-cli-fastboot'));
   })
   .catch(function(e) {
-    console.log(e);
+    console.log(e); // eslint-disable-line no-console
   });
