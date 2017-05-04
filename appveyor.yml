@@ -15,6 +15,7 @@ init:
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
+  - npm i -g npm@^3
   - npm config set spin false
   - npm install -g bower
   - npm install
