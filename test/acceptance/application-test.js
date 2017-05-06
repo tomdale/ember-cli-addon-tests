@@ -52,15 +52,17 @@ describe('Acceptance | application', function() {
         pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
       });
       return app.run('npm', 'install');
-    }).then(function() {
-      return app.startServer({
-        command: 'fastboot',
-        additionalArguments: ['--serve-assets']
-      });
     });
   });
 
-  after(function() {
+  beforeEach(function() {
+    return app.startServer({
+      command: 'fastboot',
+      additionalArguments: ['--serve-assets']
+    });
+  });
+
+  afterEach(function() {
     return app.stopServer();
   });
 
