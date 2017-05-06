@@ -20,11 +20,10 @@ function promoteHtmlbars() {
 describe('Acceptance | application', function() {
   this.timeout(process.platform === 'win32' ? 500000 : 300000);
 
-  var previousCwd;
   var app;
 
   before(function() {
-    previousCwd = process.cwd();
+    var previousCwd = process.cwd();
     var tmp = makeTemp.mkdirSync();
     process.chdir(tmp);
 
@@ -47,6 +46,8 @@ describe('Acceptance | application', function() {
         fixturesPath: 'tests'
       });
     }).then(function() {
+      process.chdir(previousCwd);
+    }).then(function() {
       app.editPackageJSON(function(pkg) {
         pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
       });
@@ -60,8 +61,6 @@ describe('Acceptance | application', function() {
   });
 
   after(function() {
-    process.chdir(previousCwd);
-
     return app.stopServer();
   });
 
