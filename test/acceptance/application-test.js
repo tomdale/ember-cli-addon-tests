@@ -78,4 +78,16 @@ describe('Acceptance | application', function() {
         expect(response.body).to.contain('my-addon is working');
       });
   });
+
+  it('can run a second one right after the first on the same port (assert port cleanup)', function() {
+    return request({
+      url: 'http://localhost:49741',
+      headers: {
+        'Accept': 'text/html'
+      }
+    })
+      .then(function(response) {
+        expect(response.body).to.contain('my-addon is working');
+      });
+  });
 });
