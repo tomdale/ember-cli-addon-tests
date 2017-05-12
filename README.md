@@ -44,15 +44,26 @@ describe('serve assets acceptance', function() {
 
     return app.create('dummy')
       .then(function() {
-        return app.startServer({
-          command: 'fastboot',
-          additionalArguments: ['--serve-assets']
-        });
+        return app.startServer();
       });
   });
 
   after(function() {
     return app.stopServer();
+  });
+
+  it('/index.html', function() {
+    return request({
+      url: 'http://localhost:49741',
+      headers: {
+        'Accept': 'text/html'
+      }
+    })
+      .then(function(response) {
+        expect(response.statusCode).to.equal(200);
+        expect(response.headers["content-type"]).to.eq("text/html");
+        expect(response.body).to.contain("<body>");
+      });
   });
 
   it('/assets/vendor.js', function() {
@@ -154,29 +165,20 @@ promise has resolved.
 ### Starting the Server
 
 To test the assets served by Ember CLI, you can start the server (i.e.,
-`ember server`) via the `startServer()` method:
+`ember serve`) via the `startServer()` method:
 
 ```js
 // returns a promise
 app.startServer();
 ```
 
-If you want to run a different command that starts the server, you can
-pass the `command` option:
-```js
-// Runs `ember fastboot` inside the app instead of `ember server`
-app.startServer({
-  command: 'fastboot'
-});
-```
-
 You can also pass additional command line arguments via the
 `additionalArguments` option:
 
 ```js
-// equivalent to `ember server --serve-assets`
+// equivalent to `ember serve --production`
 app.startServer({
-  additionalArguments: ['--serve-assets']
+  additionalArguments: ['--production']
 });
 ```
 
@@ -204,8 +206,8 @@ You can run commands using the app's version of Ember CLI via the
 `runEmberCommand` method:
 
 ```js
-// equivalent to `ember fastboot:build --environment production`
-app.runEmberCommand('fastboot:build', '--environment', 'production');
+// equivalent to `ember build --environment production`
+app.runEmberCommand('build', '--environment', 'production');
 ```
 
 ### Cleanup
