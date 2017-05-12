@@ -56,10 +56,7 @@ describe('Acceptance | application', function() {
   });
 
   beforeEach(function() {
-    return app.startServer({
-      command: 'fastboot',
-      additionalArguments: ['--serve-assets']
-    });
+    return app.startServer();
   });
 
   afterEach(function() {
@@ -67,7 +64,16 @@ describe('Acceptance | application', function() {
   });
 
   it('works', function() {
-    return request('http://localhost:49741')
+    return request({
+      url: 'http://localhost:49741',
+      headers: {
+        // We have to send the `Accept` header so the ember-cli server sees this as a request to `index.html` and sets
+        // `req.serveUrl`, that ember-cli-fastboot needs in its middleware
+        // See https://github.com/ember-cli/ember-cli/blob/86a903f/lib/tasks/server/middleware/history-support/index.js#L55
+        // and https://github.com/ember-fastboot/ember-cli-fastboot/blob/28213e0/index.js#L160
+        'Accept': 'text/html'
+      }
+    })
       .then(function(response) {
         expect(response.body).to.contain('my-addon is working');
       });
