@@ -110,6 +110,12 @@ application as the first argument.
 app.create('my-app');
 ```
 
+### "Precooking" Node Modules
+
+You can "precook" (essentially pre-install) the node modules for the test
+applications by using `scripts/precook-node-modules.js`. This will speed up
+test runs by configuring a `node_modules` directory that will be reused.
+
 ### Options
 
 You can customize the app by supplying an options hash:
