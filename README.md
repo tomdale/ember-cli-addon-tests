@@ -1,4 +1,4 @@
-## Ember CLI Addon Tests
+# Ember CLI Addon Tests
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/tomdale/ember-cli-addon-tests.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/ember-cli-addon-tests.svg)](https://badge.fury.io/js/ember-cli-addon-tests)
@@ -19,13 +19,13 @@ real app so you can catch integration issues early.
 
 **Stability Note**: API likely to change
 
-### Installation
+## Installation
 
 ```sh
 npm install ember-cli-addon-tests --save-dev
 ```
 
-### Example
+## Example
 
 ```js
 var expect = require('chai').expect;
@@ -89,7 +89,7 @@ describe('serve assets acceptance', function() {
 See the [ember-cli-fastboot tests](https://github.com/ember-fastboot/ember-cli-fastboot/tree/master/test)
 for real world examples.
 
-### Defining a New App
+## Defining a New App
 
 Creates a new app for testing.
 
@@ -98,7 +98,7 @@ var AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
 app = new AddonTestApp();
 ```
 
-### Creating the App
+## Creating the App
 
 This starts the process of actually creating a new Ember CLI app on
 disk. The first run may take several minutes while the `npm install`
@@ -110,7 +110,7 @@ application as the first argument.
 app.create('my-app');
 ```
 
-#### Options
+### Options
 
 You can customize the app by supplying an options hash:
 
@@ -131,7 +131,7 @@ The following options exist:
 | noFixtures       | Disables the use of fixture files                                                       | false               |
 
 
-#### Fixtures
+### Fixtures
 
 You will probably want to add files to the Ember application that you
 want to test your addon with. Ember CLI Addon Tests will automatically
@@ -145,7 +145,7 @@ and will copy them to the test app, overwriting any files that exist.
 If you do not need fixture files in your test, you can disable them by
 specifying the `noFixtures` option.
 
-### Editing App's `package.json`
+## Editing App's `package.json`
 
 If your addon depends on end developers configuring their application's
 `package.json`, you can edit the test app's `package.json` with the
@@ -162,7 +162,7 @@ app.editPackageJSON(function(pkg) {
 You should not call `app.editPackageJSON()` until after the `create()`
 promise has resolved.
 
-### Starting the Server
+## Starting the Server
 
 To test the assets served by Ember CLI, you can start the server (i.e.,
 `ember serve`) via the `startServer()` method:
@@ -182,7 +182,7 @@ app.startServer({
 });
 ```
 
-### Stopping the Server
+## Stopping the Server
 
 After your tests, stop the development server via `stopServer()`.
 
@@ -190,7 +190,7 @@ After your tests, stop the development server via `stopServer()`.
 app.stopServer();
 ```
 
-### Running Commands
+## Running Commands
 
 You can run arbitrary commands inside the test app via the `run()`
 method. Takes a command and optional arguments.
@@ -200,7 +200,7 @@ method. Takes a command and optional arguments.
 app.run('ember', 'build', '--verbose');
 ```
 
-### Running Ember CLI Commands
+## Running Ember CLI Commands
 
 You can run commands using the app's version of Ember CLI via the
 `runEmberCommand` method:
@@ -210,6 +210,6 @@ You can run commands using the app's version of Ember CLI via the
 app.runEmberCommand('build', '--environment', 'production');
 ```
 
-### Cleanup
+## Cleanup
 
 Temporary directories are automatically deleted once the process exits.
