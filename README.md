@@ -135,6 +135,7 @@ The following options exist:
 | emberDataVersion | Set the version of ember-data, as you would in your `package.json`                      | emberjs/data#master |
 | fixturesPath     | The path to look for your fixture files (see below)                                     | test/fixtures       |
 | noFixtures       | Disables the use of fixture files                                                       | false               |
+| yarn             | Use yarn instead of npm                                                                 | false               |
 
 
 ### Fixtures

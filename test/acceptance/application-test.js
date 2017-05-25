@@ -43,7 +43,8 @@ describe('Acceptance | application', function() {
       promoteHtmlbars();
 
       return app.create('dummy', {
-        fixturesPath: 'tests'
+        fixturesPath: 'tests',
+        yarn: true
       });
     }).then(function() {
       process.chdir(previousCwd);
@@ -51,7 +52,7 @@ describe('Acceptance | application', function() {
       app.editPackageJSON(function(pkg) {
         pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
       });
-      return app.run('npm', 'install');
+      return app.run('yarn', 'install');
     });
   });
 
