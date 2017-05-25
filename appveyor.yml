@@ -15,20 +15,19 @@ init:
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - npm i -g npm@^3
-  - npm config set spin false
-  - npm install -g bower
-  - npm install
+  - yarn global add bower
+  - yarn install
 
 # Post-install test scripts.
 test_script:
   - node --version
-  - npm --version
+  - yarn --version
   - bower --version
-  - npm test
+  - yarn test
 
 cache:
   - '%APPDATA%\npm-cache'
+  - "%LOCALAPPDATA%\\Yarn"
 
 # Don't actually build.
 build: off
