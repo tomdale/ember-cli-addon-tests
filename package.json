@@ -36,7 +36,7 @@
     "temp": "^0.8.3"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.2",
     "cross-env": "^5.0.0",
     "ember-cli": "~2.13.0",
     "ember-cli-fastboot": "1.0.0-beta.19",
