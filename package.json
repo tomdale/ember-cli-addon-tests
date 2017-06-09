@@ -39,7 +39,7 @@
     "chai": "^4.0.2",
     "cross-env": "^5.0.0",
     "ember-cli": "~2.13.0",
-    "ember-cli-fastboot": "1.0.0-beta.19",
+    "ember-cli-fastboot": "1.0.0-rc3",
     "mocha": "^3.1.2",
     "mocha-eslint": "^3.0.1",
     "request": "^2.75.0"
