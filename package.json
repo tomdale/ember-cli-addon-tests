@@ -21,7 +21,7 @@
     "test:mocha": "mocha test test/acceptance"
   },
   "dependencies": {
-    "chalk": "^1.1.3",
+    "chalk": "^2.0.0",
     "cpr": "^2.0.0",
     "debug": "^2.2.0",
     "exists-sync": "0.0.4",
