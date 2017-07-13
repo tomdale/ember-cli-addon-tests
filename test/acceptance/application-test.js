@@ -7,6 +7,7 @@ var runEmber = require('../../lib/utilities/run-ember');
 var makeTemp = require('temp').track();
 var copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
 var fs = require('fs');
+var copy = RSVP.denodeify(require('cpr'));
 
 function promoteHtmlbars() {
   var pkg = fs.readFileSync('package.json');
@@ -48,6 +49,11 @@ describe('Acceptance | application', function() {
     }).then(function() {
       process.chdir(previousCwd);
     }).then(function() {
+      return copy(
+        path.join(__dirname, '../fixtures/random-template.hbs'),
+        path.join(app.path, 'app/templates/random-template.hbs')
+      );
+    }).then(function() {
       app.editPackageJSON(function(pkg) {
         pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
       });
@@ -88,6 +94,13 @@ describe('Acceptance | application', function() {
     })
       .then(function(response) {
         expect(response.body).to.contain('my-addon is working');
+      });
+  });
+
+  it('exposes `app.path` for manual fixture copying', function() {
+    return request('http://localhost:49741/assets/dummy.js')
+      .then(function(response) {
+        expect(response.body).to.contain('random template');
       });
   });
 });
