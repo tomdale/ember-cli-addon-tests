@@ -28,22 +28,23 @@ npm install ember-cli-addon-tests --save-dev
 ## Example
 
 ```js
-var expect = require('chai').expect;
-var RSVP = require('rsvp');
-var request = RSVP.denodeify(require('request'));
-var AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
+'use strict';
+
+const expect = require('chai').expect;
+const RSVP = require('rsvp');
+const request = RSVP.denodeify(require('request'));
+const AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
 
 describe('serve assets acceptance', function() {
   this.timeout(300000);
 
-  var app;
+  let app;
 
   before(function() {
-
     app = new AddonTestApp();
 
     return app.create('dummy')
-      .then(function() {
+      .then(() => {
         return app.startServer();
       });
   });
@@ -59,7 +60,7 @@ describe('serve assets acceptance', function() {
         'Accept': 'text/html'
       }
     })
-      .then(function(response) {
+      .then(response => {
         expect(response.statusCode).to.equal(200);
         expect(response.headers["content-type"]).to.eq("text/html");
         expect(response.body).to.contain("<body>");
@@ -68,7 +69,7 @@ describe('serve assets acceptance', function() {
 
   it('/assets/vendor.js', function() {
     return request('http://localhost:49741/assets/vendor.js')
-      .then(function(response) {
+      .then(response => {
         expect(response.statusCode).to.equal(200);
         expect(response.headers["content-type"]).to.eq("application/javascript");
         expect(response.body).to.contain("Ember =");
@@ -77,7 +78,7 @@ describe('serve assets acceptance', function() {
 
   it('/assets/dummy.js', function() {
     return request('http://localhost:49741/assets/dummy.js')
-      .then(function(response) {
+      .then(response => {
         expect(response.statusCode).to.equal(200);
         expect(response.headers["content-type"]).to.eq("application/javascript");
         expect(response.body).to.contain("this.route('posts')");
@@ -94,7 +95,7 @@ for real world examples.
 Creates a new app for testing.
 
 ```js
-var AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
+const AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
 app = new AddonTestApp();
 ```
 
@@ -159,7 +160,7 @@ If your addon depends on end developers configuring their application's
 
 ```js
 // runs synchronously
-app.editPackageJSON(function(pkg) {
+app.editPackageJSON(pkg => {
   pkg.devDependencies['fake-addon'] = "*";
   pkg.devDependencies['fake-addon-2'] = "*";
 });
