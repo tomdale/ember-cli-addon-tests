@@ -151,6 +151,18 @@ and will copy them to the test app, overwriting any files that exist.
 If you do not need fixture files in your test, you can disable them by
 specifying the `noFixtures` option.
 
+Once the promise resolves, you can inspect the temporary location of the
+app under test via `app.path`:
+
+```js
+app.create('my-app').then(() => {
+  console.log(app.path);
+  // /var/folders/vc/wjjhq0f542q3dn2109clfy81dlk662/T/d-117613-7500-1bq89dh.8ts6wuq5mi/under-test/my-app
+  // or
+  // C:\Users\kelly\AppData\Local\Temp\d-117613-15884-1j1bw40.5kbh\under-test\my-app
+});
+```
+
 ## Editing App's `package.json`
 
 If your addon depends on end developers configuring their application's
