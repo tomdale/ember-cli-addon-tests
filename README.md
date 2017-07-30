@@ -201,6 +201,17 @@ app.startServer({
 });
 ```
 
+You can run your own command as well:
+
+```js
+app.startServer({
+  command: 'foo',
+  detectServerStart(output) {
+    return output.indexOf('foo is ready') > -1;
+  }
+});
+```
+
 ## Stopping the Server
 
 After your tests, stop the development server via `stopServer()`.
