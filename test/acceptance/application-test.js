@@ -1,16 +1,18 @@
-var path = require('path');
-var expect = require('chai').expect;
-var RSVP = require('rsvp');
-var request = RSVP.denodeify(require('request'));
-var AddonTestApp = require('../../lib').AddonTestApp;
-var runEmber = require('../../lib/utilities/run-ember');
-var makeTemp = require('temp').track();
-var copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
-var fs = require('fs');
-var copy = RSVP.denodeify(require('cpr'));
+'use strict';
+
+const path = require('path');
+const expect = require('chai').expect;
+const RSVP = require('rsvp');
+const request = RSVP.denodeify(require('request'));
+const AddonTestApp = require('../../lib').AddonTestApp;
+const runEmber = require('../../lib/utilities/run-ember');
+const makeTemp = require('temp').track();
+const copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
+const fs = require('fs');
+const copy = RSVP.denodeify(require('cpr'));
 
 function promoteHtmlbars() {
-  var pkg = fs.readFileSync('package.json');
+  let pkg = fs.readFileSync('package.json');
   pkg = JSON.parse(pkg);
   pkg.dependencies['ember-cli-htmlbars'] = pkg.devDependencies['ember-cli-htmlbars'];
   delete pkg.devDependencies['ember-cli-htmlbars'];
@@ -21,17 +23,17 @@ function promoteHtmlbars() {
 describe('Acceptance | application', function() {
   this.timeout(process.platform === 'win32' ? 500000 : 300000);
 
-  var app;
+  let app;
 
   before(function() {
-    var previousCwd = process.cwd();
-    var tmp = makeTemp.mkdirSync();
+    let previousCwd = process.cwd();
+    let tmp = makeTemp.mkdirSync();
     process.chdir(tmp);
 
     app = new AddonTestApp();
 
-    var addonName = 'my-addon';
-    var addonPath = path.join(tmp, addonName);
+    let addonName = 'my-addon';
+    let addonPath = path.join(tmp, addonName);
 
     return runEmber(
       'addon', [addonName, '-sb', '-sn', '-sg']
