@@ -34,7 +34,11 @@ describe('Acceptance | complicated', function() {
   });
 
   beforeEach(function() {
-    return app.startServer();
+    return app.startServer({
+      detectServerStart(output) {
+        return output.indexOf('Serving on ') > -1;
+      }
+    });
   });
 
   afterEach(function() {
