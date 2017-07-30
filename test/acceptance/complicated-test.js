@@ -5,49 +5,21 @@ const expect = require('chai').expect;
 const RSVP = require('rsvp');
 const request = RSVP.denodeify(require('request'));
 const AddonTestApp = require('../../lib').AddonTestApp;
-const runEmber = require('../../lib/utilities/run-ember');
-const makeTemp = require('temp').track();
-const copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
-const fs = require('fs-extra');
 const copy = RSVP.denodeify(require('cpr'));
+const createAddon = require('../helpers/create-addon');
 
-function promoteHtmlbars() {
-  let pkg = fs.readJsonSync('package.json');
-  pkg.dependencies['ember-cli-htmlbars'] = pkg.devDependencies['ember-cli-htmlbars'];
-  delete pkg.devDependencies['ember-cli-htmlbars'];
-  fs.writeJsonSync('package.json', pkg);
-}
-
-describe('Acceptance | application', function() {
+describe('Acceptance | complicated', function() {
   this.timeout(process.platform === 'win32' ? 500000 : 300000);
 
   let app;
 
   before(function() {
-    let previousCwd = process.cwd();
-    let tmp = makeTemp.mkdirSync();
-    process.chdir(tmp);
-
     app = new AddonTestApp();
 
-    let addonName = 'my-addon';
-    let addonPath = path.join(tmp, addonName);
-
-    return runEmber(
-      'addon', [addonName, '-sb', '-sn', '-sg']
-    ).then(function() {
-      process.chdir(previousCwd);
-      return copyFixtureFiles(addonName, addonPath);
-    }).then(function() {
-      process.chdir(addonPath);
-
-      promoteHtmlbars();
-
+    return createAddon(() => {
       return app.create('dummy', {
         fixturesPath: 'tests'
       });
-    }).then(function() {
-      process.chdir(previousCwd);
     }).then(function() {
       return copy(
         path.join(__dirname, '../fixtures/random-template.hbs'),
