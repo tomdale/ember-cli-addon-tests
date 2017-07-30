@@ -130,12 +130,13 @@ app.create('my-app', {
 
 The following options exist:
 
-| option           | description                                                                             | defaults to         |
-|------------------|-----------------------------------------------------------------------------------------|---------------------|
-| emberVersion     | Set the ember version the app should be created with, as you would in your `bower.json` | canary              |
-| emberDataVersion | Set the version of ember-data, as you would in your `package.json`                      | emberjs/data#master |
-| fixturesPath     | The path to look for your fixture files (see below)                                     | test/fixtures       |
-| noFixtures       | Disables the use of fixture files                                                       | false               |
+| option           | description                                                                                   | defaults to         |
+|------------------|-----------------------------------------------------------------------------------------------|---------------------|
+| emberVersion     | Set the ember version the app should be created with, as you would in your `bower.json`       | canary              |
+| emberDataVersion | Set the version of ember-data, as you would in your `package.json`                            | emberjs/data#master |
+| fixturesPath     | The path to look for your fixture files (see below)                                           | test/fixtures       |
+| noFixtures       | Disables the use of fixture files                                                             | false               |
+| skipNpm          | Useful if you want to edit the `package.json` and install later (skips the default blueprint) | false               |
 
 
 ### Fixtures

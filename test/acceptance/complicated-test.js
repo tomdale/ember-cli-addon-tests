@@ -18,7 +18,8 @@ describe('Acceptance | complicated', function() {
 
     return createAddon(() => {
       return app.create('dummy', {
-        fixturesPath: 'tests'
+        fixturesPath: 'tests',
+        skipNpm: true
       });
     }).then(() => {
       return copy(
