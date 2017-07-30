@@ -8,16 +8,14 @@ const AddonTestApp = require('../../lib').AddonTestApp;
 const runEmber = require('../../lib/utilities/run-ember');
 const makeTemp = require('temp').track();
 const copyFixtureFiles = require('../../lib/utilities/copy-fixture-files');
-const fs = require('fs');
+const fs = require('fs-extra');
 const copy = RSVP.denodeify(require('cpr'));
 
 function promoteHtmlbars() {
-  let pkg = fs.readFileSync('package.json');
-  pkg = JSON.parse(pkg);
+  let pkg = fs.readJsonSync('package.json');
   pkg.dependencies['ember-cli-htmlbars'] = pkg.devDependencies['ember-cli-htmlbars'];
   delete pkg.devDependencies['ember-cli-htmlbars'];
-  pkg = JSON.stringify(pkg);
-  fs.writeFileSync('package.json', pkg);
+  fs.writeJsonSync('package.json', pkg);
 }
 
 describe('Acceptance | application', function() {
