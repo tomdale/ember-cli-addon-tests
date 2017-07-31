@@ -2,8 +2,7 @@
 
 const temp             = require('temp').track();
 const path             = require('path');
-const fs               = require('fs-promise');
-const readJsonSync     = require('fs-extra').readJsonSync;
+const fs               = require('fs-extra');
 const findup           = require('findup-sync');
 
 const moveDirectory    = require('../lib/utilities/move-directory');
@@ -15,7 +14,7 @@ const root             = process.cwd();
 const appName          = 'precooked-app';
 
 const pkg = findup('package.json');
-const name = readJsonSync(pkg).name;
+const name = fs.readJsonSync(pkg).name;
 
 fs.ensureDir('tmp')
   .then(function() {
