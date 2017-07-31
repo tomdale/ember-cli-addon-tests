@@ -201,7 +201,8 @@ app.startServer({
 });
 ```
 
-You can run your own command as well:
+You can run your own command like `ember foo` instead of `ember serve`.
+Then you need to tell it what to look for in the console to know it is ready.:
 
 ```js
 app.startServer({
