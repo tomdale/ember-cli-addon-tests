@@ -18,15 +18,15 @@ const pkg = findup('package.json');
 const name = readJsonSync(pkg).name;
 
 fs.ensureDir('tmp')
-  .then(function() {
+  .then(() => {
     process.chdir(tmpDir);
     return runNew(appName);
   })
-  .then(function() {
+  .then(() => {
     let precooked = path.join(root, 'tmp', 'precooked_node_modules');
     moveDirectory(path.join(tmpDir, appName, 'node_modules'), precooked);
     symlinkDirectory(root, path.join(precooked, name));
   })
-  .catch(function(e) {
+  .catch((e) => {
     console.log(e); // eslint-disable-line no-console
   });
