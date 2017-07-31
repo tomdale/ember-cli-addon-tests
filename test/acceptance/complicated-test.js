@@ -20,13 +20,13 @@ describe('Acceptance | complicated', function() {
       return app.create('dummy', {
         fixturesPath: 'tests'
       });
-    }).then(function() {
+    }).then(() => {
       return copy(
         path.join(__dirname, '../fixtures/random-template.hbs'),
         path.join(app.path, 'app/templates/random-template.hbs')
       );
-    }).then(function() {
-      app.editPackageJSON(function(pkg) {
+    }).then(() => {
+      app.editPackageJSON(pkg => {
         pkg.devDependencies['ember-cli-fastboot'] = process.env.npm_package_devDependencies_ember_cli_fastboot;
       });
       return app.run('npm', 'install');
@@ -56,7 +56,7 @@ describe('Acceptance | complicated', function() {
         'Accept': 'text/html'
       }
     })
-      .then(function(response) {
+      .then(response => {
         expect(response.body).to.contain('my-addon is working');
       });
   });
@@ -68,14 +68,14 @@ describe('Acceptance | complicated', function() {
         'Accept': 'text/html'
       }
     })
-      .then(function(response) {
+      .then(response => {
         expect(response.body).to.contain('my-addon is working');
       });
   });
 
   it('exposes `app.path` for manual fixture copying', function() {
     return request('http://localhost:49741/assets/dummy.js')
-      .then(function(response) {
+      .then(response => {
         expect(response.body).to.contain('random template');
       });
   });

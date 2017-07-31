@@ -31,7 +31,7 @@ describe('Acceptance | simple', function() {
 
   it('works', function() {
     return request('http://localhost:49741/assets/vendor.js')
-      .then(function(response) {
+      .then(response => {
         expect(response.body).to.contain('my-addon is working');
       });
   });
