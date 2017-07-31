@@ -5,7 +5,7 @@ const expect = require('chai').expect;
 const RSVP = require('rsvp');
 const request = RSVP.denodeify(require('request'));
 const AddonTestApp = require('../../lib').AddonTestApp;
-const copy = RSVP.denodeify(require('cpr'));
+const copy = require('fs-extra').copy;
 const createAddon = require('../helpers/create-addon');
 
 describe('Acceptance | complicated', function() {

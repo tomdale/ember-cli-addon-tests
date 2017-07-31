@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "chalk": "^2.0.1",
-    "cpr": "^2.0.0",
     "debug": "^2.2.0",
     "findup-sync": "^1.0.0",
     "fs-extra": "^4.0.0",
