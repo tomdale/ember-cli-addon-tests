@@ -1,8 +1,8 @@
 'use strict';
 
 const expect = require('chai').expect;
-const RSVP = require('rsvp');
-const request = RSVP.denodeify(require('request'));
+const denodeify = require('denodeify');
+const request = denodeify(require('request'));
 const AddonTestApp = require('../../lib').AddonTestApp;
 const createAddon = require('../helpers/create-addon');
 
