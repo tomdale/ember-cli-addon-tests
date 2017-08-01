@@ -4,17 +4,13 @@ environment:
   - nodejs_version: "6"
   - nodejs_version: "8"
 
-platform:
-  - x86
-  - x64
-
 # Fix line endings in Windows. (runs before repo cloning)
 init:
   - git config --global core.autocrlf true
 
 # Install scripts. (runs after repo cloning)
 install:
-  - ps: Install-Product node $env:nodejs_version $env:platform
+  - ps: Install-Product node $env:nodejs_version
   - npm i -g npm@^3
   - npm config set spin false
   - npm install -g bower
