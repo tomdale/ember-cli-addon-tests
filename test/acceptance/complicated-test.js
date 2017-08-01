@@ -23,7 +23,7 @@ describe('Acceptance | complicated', function() {
     }).then(() => {
       return copy(
         path.join(__dirname, '../fixtures/random-template.hbs'),
-        path.join(app.path, 'app/templates/random-template.hbs')
+        app.filePath('app/templates/random-template.hbs')
       );
     }).then(() => {
       app.editPackageJSON(pkg => {
