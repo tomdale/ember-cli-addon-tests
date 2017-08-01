@@ -31,8 +31,8 @@ npm install ember-cli-addon-tests --save-dev
 'use strict';
 
 const expect = require('chai').expect;
-const RSVP = require('rsvp');
-const request = RSVP.denodeify(require('request'));
+const denodeify = require('denodeify');
+const request = denodeify(require('request'));
 const AddonTestApp = require('ember-cli-addon-tests').AddonTestApp;
 
 describe('serve assets acceptance', function() {
