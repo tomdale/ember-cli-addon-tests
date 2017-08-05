@@ -1,4 +1,7 @@
 /* eslint-env node */
 module.exports = {
-  normalizeEntityName() {}
+  normalizeEntityName() {
+    // this should fail if dependencies aren't installed
+    require('broccoli-asset-rev');
+  }
 };
