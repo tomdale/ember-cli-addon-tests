@@ -22,7 +22,8 @@ fs.ensureDir('tmp')
     return runNew(appName);
   })
   .then(() => {
-    let precooked = path.join(root, 'tmp', 'precooked_node_modules');
+    let precooked = path.join(root, 'tmp', 'precooked_node_modules', 'node_modules');
+    fs.mkdirSync(path.dirname(precooked));
     moveDirectory(path.join(tmpDir, appName, 'node_modules'), precooked);
     symlinkDirectory(root, path.join(precooked, name));
   })
