@@ -40,7 +40,7 @@
     "eslint-plugin-prefer-let": "^1.0.1",
     "mocha": "^5.0.0",
     "mocha-eslint": "^4.0.0",
-    "request": "^2.75.0"
+    "request": "2.85.0"
   },
   "engines": {
     "node": ">= 4"
