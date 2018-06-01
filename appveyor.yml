@@ -3,6 +3,7 @@ environment:
   - nodejs_version: "4"
   - nodejs_version: "6"
   - nodejs_version: "8"
+  - nodejs_version: "10"
 
 # Fix line endings in Windows. (runs before repo cloning)
 init:
@@ -13,14 +14,11 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm i -g npm@^3
   - npm config set spin false
-  - npm install -g bower
-  - npm install
 
 # Post-install test scripts.
 test_script:
   - node --version
   - npm --version
-  - bower --version
   - npm test
 
 cache:
