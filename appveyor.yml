@@ -3,6 +3,7 @@ environment:
   - nodejs_version: "4"
   - nodejs_version: "6"
   - nodejs_version: "8"
+  - nodejs_version: "10"
 
 # Fix line endings in Windows. (runs before repo cloning)
 init:
@@ -22,9 +23,6 @@ test_script:
   - npm --version
   - bower --version
   - npm test
-
-cache:
-  - '%APPDATA%\npm-cache'
 
 # Don't actually build.
 build: off
