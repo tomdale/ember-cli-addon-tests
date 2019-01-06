@@ -21,7 +21,7 @@
     "test:mocha": "mocha test test/acceptance"
   },
   "dependencies": {
-    "chalk": "^2.0.1",
+    "chalk": "^2.4.2",
     "debug": "^3.0.0",
     "denodeify": "^1.2.1",
     "findup-sync": "^2.0.0",
