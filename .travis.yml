@@ -5,6 +5,9 @@ node_js:
   - "10"
 
 before_install:
-  - if [[ `npm -v` != 6* ]]; then npm i -g npm@6; fi
+
+  # TODO: remove when we stop testing against node 6
+  - if [[ `npm -v` < 6* ]]; then npm i -g npm@6; fi
+
   - npm install -g bower
   - bower --version
