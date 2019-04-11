@@ -1,6 +1,5 @@
 environment:
   matrix:
-  - nodejs_version: "4"
   - nodejs_version: "6"
   - nodejs_version: "8"
   - nodejs_version: "10"
@@ -12,8 +11,7 @@ init:
 # Install scripts. (runs after repo cloning)
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm i -g npm@^3
-  - npm config set spin false
+  - npm i -g npm@^6
   - npm install -g bower
   - npm install
 
