@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "chai": "^4.0.2",
-    "cross-env": "^5.0.0",
+    "cross-env": "^6.0.0",
     "ember-cli": "~3.8.0",
     "ember-cli-fastboot": "^1.0.0",
     "eslint-config-sane": "^0.6.0",
