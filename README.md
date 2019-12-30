@@ -196,9 +196,9 @@ You can also pass additional command line arguments via the
 `additionalArguments` option:
 
 ```js
-// equivalent to `ember serve --production`
+// equivalent to `ember serve -prod`
 app.startServer({
-  additionalArguments: ['--production']
+  additionalArguments: ['-prod']
 });
 ```
 
